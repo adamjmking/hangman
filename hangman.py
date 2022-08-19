@@ -44,7 +44,7 @@ images = ['''
    / \  |
        ==='''] 
     
-cheat = True
+cheat = False
     
 def play():
     randomWord = getRandomWord(words)
@@ -56,8 +56,11 @@ def play():
     while True:
         # Detect loss
         if (parts > 5):
-            print(f"{images[6]} You Lose! The word was {randomWord.upper()}")
-            break
+            choice = input(f"{images[6]} You Lose! The word was {randomWord.upper()} \n Would you like to play again? (y/n) ")
+            if (choice == "y"):
+                play()
+            else:
+                sys.exit(0)
         
         # Guess a letter
         s = "".join(blanks)
